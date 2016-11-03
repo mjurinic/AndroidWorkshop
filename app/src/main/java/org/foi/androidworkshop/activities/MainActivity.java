@@ -22,11 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnFragmentActivity;
 
     private Button btnListActivity;
-<<<<<<< HEAD
-    private Button btnFragmentActivity;
     private Button btnRetrofit;
-=======
->>>>>>> 3704c266e504b331d4fb6b850d4dc54588e883ae
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Inside onCreate()");
 
         btnListActivity = (Button) findViewById(R.id.btnListActivity);
-<<<<<<< HEAD
-        btnFragmentActivity = (Button) findViewById(R.id.btnFragmentActivity);
         btnRetrofit = (Button) findViewById(R.id.btnRetrofit);
-=======
->>>>>>> 3704c266e504b331d4fb6b850d4dc54588e883ae
 
         btnListActivity.setOnClickListener(new View.OnClickListener() {
             @Override
