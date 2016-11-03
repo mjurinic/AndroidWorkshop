@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/btnListActivity"
         android:text="Fragment Activity"/>
+
+    <Button
+        android:id="@+id/btnRetrofit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btnFragmentActivity"
+        android:text="Retrofit"/>
 </RelativeLayout>

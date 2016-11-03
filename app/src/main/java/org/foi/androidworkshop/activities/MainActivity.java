@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnListActivity;
     private Button btnFragmentActivity;
+    private Button btnRetrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
         btnListActivity = (Button) findViewById(R.id.btnListActivity);
         btnFragmentActivity = (Button) findViewById(R.id.btnFragmentActivity);
+        btnRetrofit = (Button) findViewById(R.id.btnRetrofit);
 
         btnListActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnRetrofit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), RetrofitActivity.class));
             }
         });
     }
