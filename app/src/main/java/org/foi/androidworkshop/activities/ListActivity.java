@@ -35,19 +35,18 @@ public class ListActivity extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new ListAdapter(musicAlbums));
+        recyclerView.setAdapter(new ListAdapter(musicAlbums, this));
     }
 
     private List<MusicAlbum> generateListData() {
         List<MusicAlbum> ret = new ArrayList<>();
 
-        ret.add(new MusicAlbum("Incubus", "Fungus Amongus", 1995));
-        ret.add(new MusicAlbum("Incubus", "S.C.I.E.N.C.E.", 1997));
-        ret.add(new MusicAlbum("Incubus", "Make Yourself", 1999));
-        ret.add(new MusicAlbum("Incubus", "Morning View", 2001));
-        ret.add(new MusicAlbum("Incubus", "A Crow Left After the Murder", 2004));
-        ret.add(new MusicAlbum("Incubus", "Light Grenades", 2006));
-        ret.add(new MusicAlbum("Incubus", "If Not Now, When?", 2011));
+        ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/9/92/Fungus_amongus.jpg", "Incubus", "Fungus Amongus", 1995));
+        ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/4/4f/Incubus_Science.jpg", "Incubus", "S.C.I.E.N.C.E.", 1997));
+        ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/6/68/Incubus_-_Morning_View.jpg", "Incubus", "Morning View", 2001));
+        ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/8/8d/ACrowLeftoftheMurderIncubus.jpg", "Incubus", "A Crow Left After the Murder", 2004));
+        ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/0/0f/Incubus_-_Light_Grenades.jpg", "Incubus", "Light Grenades", 2006));
+        ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/2/22/If_not_now_when_album_cover.jpg", "Incubus", "If Not Now, When?", 2011));
 
         return ret;
     }

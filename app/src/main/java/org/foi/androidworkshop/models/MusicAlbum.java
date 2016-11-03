@@ -2,13 +2,15 @@ package org.foi.androidworkshop.models;
 
 public class MusicAlbum {
 
+    private String albumArtUrl;
     private String artist;
     private String album;
     private int year;
 
     public MusicAlbum() {}
 
-    public MusicAlbum(String artist, String album, int year) {
+    public MusicAlbum(String albumArtUrl, String artist, String album, int year) {
+        this.albumArtUrl = albumArtUrl;
         this.artist = artist;
         this.album = album;
         this.year = year;
@@ -36,5 +38,13 @@ public class MusicAlbum {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getAlbumArtUrl() {
+        return albumArtUrl;
+    }
+
+    public void setAlbumArtUrl(String albumArtUrl) {
+        this.albumArtUrl = albumArtUrl;
     }
 }
