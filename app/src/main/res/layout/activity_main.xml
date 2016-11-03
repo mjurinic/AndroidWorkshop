@@ -8,10 +8,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.foi.androidworkshop.MainActivity">
+    tools:context="org.foi.androidworkshop.activities.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btnListActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="List Activity"/>
+
+    <Button
+        android:id="@+id/btnFragmentActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btnListActivity"
+        android:text="Fragment Activity"/>
 </RelativeLayout>
