@@ -9,23 +9,29 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "INFO";
 
-    private Button btnListActivity;
+    //A button added with Butterknife Lib
+    @BindView(R.id.btnFragmentActivity)
+    Button btnFragmentActivity;
 
-    private Button btnFragmentActivity;
+    private Button btnListActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         Log.i(TAG, "Inside onCreate()");
 
         btnListActivity = (Button) findViewById(R.id.btnListActivity);
-        btnFragmentActivity = (Button) findViewById(R.id.btnFragmentActivity);
 
         btnListActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @OnClick(R.id.btnFragmentActivity)
+    public void onBtnFragmentClicked() {
+        Intent intent = new Intent(this, MemeActivity.class);
+        startActivity(intent);
     }
 
     @Override
