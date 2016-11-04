@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private List<MusicAlbum> musicAlbums;
-
     private Context context;
 
     public ListAdapter(List<MusicAlbum> musicAlbums, Context context) {
@@ -27,11 +26,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         this.context = context;
     }
 
+    // Creates new views that will be invoked by the LayoutManager
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // It is crucial to set "attachToRoot" to false because the LayoutManager
+        // will decide when to attach the inflated layout to the root layout.
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false));
     }
 
+    // "holder" is the view at the i-th (position) position on the screen.
+    // Whenever a view gets invoked by the LayoutManager, set the right content,
+    // e.g. i-th view should have i-th data from the dataset.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 //        Glide.with(context)
@@ -52,9 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView ivAlbumArt;
-
         private TextView tvArtist;
-
         private TextView tvAlbum;
 
         //Example with Butterknife usage in RecyclerView.ViewHolder
