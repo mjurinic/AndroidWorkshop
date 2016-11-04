@@ -16,6 +16,8 @@ public class MainActivity extends BaseActivity {
 
     private static final String TAG = "INFO";
 
+    public static final String EXTRA_NAME = "EXTRA_NAME";
+
     @BindView(R.id.btn_fragment_activity)
     Button btnFragmentActivity;
 
@@ -53,7 +55,7 @@ public class MainActivity extends BaseActivity {
     public void onBtnFragmentClicked() {
         //Long way - used when passing some params to the child activity
         Intent intent = new Intent(this, MemeActivity.class);
-        intent.putExtra("EXTRA_NAME", "Stefano");
+        intent.putExtra(EXTRA_NAME, "Stefano");
         startActivity(intent);
 
         //Short way - when no params are needed
