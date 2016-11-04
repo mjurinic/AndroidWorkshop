@@ -7,6 +7,7 @@ import org.foi.androidworkshop.listeners.FragmentActionListener;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,6 +30,7 @@ public class MemeActivity extends BaseActivity implements FragmentActionListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meme);
         ButterKnife.bind(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @OnClick(R.id.btn_send_meme)
@@ -50,5 +52,18 @@ public class MemeActivity extends BaseActivity implements FragmentActionListener
     @Override
     public void textSuccessfullySet() {
         Toast.makeText(this, "Successfully set text", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
