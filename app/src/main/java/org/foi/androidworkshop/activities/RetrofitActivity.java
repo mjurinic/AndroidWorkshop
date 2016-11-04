@@ -27,6 +27,7 @@ public class RetrofitActivity extends BaseActivity {
     public static final String ERROR = "ERROR";
 
     private ApiService service;
+
     private RecyclerView recyclerView;
 
     @Override
@@ -35,7 +36,6 @@ public class RetrofitActivity extends BaseActivity {
         setContentView(R.layout.activity_retrofit);
 
         recyclerView = (RecyclerView) findViewById(R.id.rvPokemons);
-
         initRetrofit();
         makeApiCall();
     }
@@ -57,15 +57,19 @@ public class RetrofitActivity extends BaseActivity {
     private void makeApiCall() {
         Call<BaseResponse<List<Pokemon>>> call = service.getPokemon();
 
-        Callback<BaseResponse<List<Pokemon>>> callback = new Callback<BaseResponse<List<Pokemon>>>() {
+        final Callback<BaseResponse<List<Pokemon>>> callback = new Callback<BaseResponse<List<Pokemon>>>() {
             @Override
             public void onResponse(Call<BaseResponse<List<Pokemon>>> call, Response<BaseResponse<List<Pokemon>>> response) {
+                hideProgress();
                 populateRecyclerView(response.body().getResults());
             }
 
             @Override
             public void onFailure(Call<BaseResponse<List<Pokemon>>> call, Throwable t) {
-                Log.e(ERROR, t.getMessage());
+                //This is for the dumb user
+                showError(getString(R.string.network_request_error));
+                //This is for the developers
+                Log.d(ERROR, t.getMessage());
             }
         };
         showProgress();
@@ -73,9 +77,9 @@ public class RetrofitActivity extends BaseActivity {
     }
 
     private void populateRecyclerView(List<Pokemon> pokemons) {
-        hideProgress();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new PokemonAdapter(pokemons));
     }
+
 }
