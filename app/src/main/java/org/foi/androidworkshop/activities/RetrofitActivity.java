@@ -1,5 +1,6 @@
 package org.foi.androidworkshop.activities;
 
+import org.foi.androidworkshop.BuildConfig;
 import org.foi.androidworkshop.R;
 import org.foi.androidworkshop.adapters.PokemonAdapter;
 import org.foi.androidworkshop.models.BaseResponse;
@@ -39,7 +40,7 @@ public class RetrofitActivity extends BaseActivity {
 
     private void initRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://pokeapi.co")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

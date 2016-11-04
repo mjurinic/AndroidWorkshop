@@ -2,8 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
+
+    def STRING = 'String'
+    def BASE_URL = 'BASE_URL'
+
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
+
     defaultConfig {
         applicationId "org.foi.androidworkshop"
         minSdkVersion 16
@@ -11,7 +16,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField STRING, BASE_URL, '"http://pokeapi.co"'
     }
+
     buildTypes {
         release {
             minifyEnabled false
