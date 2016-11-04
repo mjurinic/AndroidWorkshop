@@ -14,9 +14,6 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private LinearLayoutManager layoutManager;
-    private ListAdapter listAdapter;
     private List<MusicAlbum> musicAlbums;
 
     @Override
@@ -29,12 +26,22 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        recyclerView = (RecyclerView) findViewById(R.id.rvListActivity);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvListActivity);
 
-        layoutManager = new LinearLayoutManager(getBaseContext());
-
+        // Every item added or removed will be the same (in width & height).
+        // If you don't set this it'll check if the size of the item has changed and that's expensive.
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+
+        // A layout manager positions item views inside a RecyclerView. There are three types of LayoutManagers:
+        //  * LinearLayoutManager - shows items in vertical or horizontal scrolling
+        //  * GridLayoutManager - shows items in grid
+        //  * StaggeredGridLayoutManager - shows items in a staggered grid
+        //
+        // To reuse (or recycle) a view, a layout manager may ask the adapter to replace the contents
+        // of the view with a different element from the dataset.
+        // Recycling views improves performance by avoiding the creation of unnecessary views or performing expensive findViewById() lookups.
+        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+
         recyclerView.setAdapter(new ListAdapter(musicAlbums, this));
     }
 
