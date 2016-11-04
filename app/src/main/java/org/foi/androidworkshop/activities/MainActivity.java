@@ -16,7 +16,6 @@ public class MainActivity extends BaseActivity {
 
     private static final String TAG = "INFO";
 
-    //A button added with Butterknife Lib
     @BindView(R.id.btn_fragment_activity)
     Button btnFragmentActivity;
 
@@ -29,7 +28,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Log.i(TAG, "Inside onCreate()");
+        Log.i(TAG, "Inside onCreate() of MainActivity");
 
         btnListActivity = (Button) findViewById(R.id.btn_list_activity);
         btnRetrofit = (Button) findViewById(R.id.btn_retrofit);
@@ -60,34 +59,34 @@ public class MainActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
 
-        Log.i(TAG, "Inside onStart()");
+        Log.i(TAG, "Inside onStart() of MainActivity");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Log.i(TAG, "Inside onResume()");
+        Log.i(TAG, "Inside onResume() of MainActivity");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        Log.i(TAG, "Inside onPause()");
+        Log.i(TAG, "Inside onPause() of MainActivity");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Log.i(TAG, "Inside onStop()");
+        Log.i(TAG, "Inside onStop() of MainActivity");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        Log.i(TAG, "Inside onDestroy()");
+        Log.i(TAG, "Inside onDestroy() of MainActivity");
     }
 }
