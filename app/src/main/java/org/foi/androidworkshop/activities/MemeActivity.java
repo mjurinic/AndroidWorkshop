@@ -21,6 +21,8 @@ public class MemeActivity extends BaseActivity implements FragmentActionListener
 
     public static final String EXTRA_NAME = "EXTRA_NAME";
 
+    public static final String MEME_NAME = "MEME_NAME";
+
     @BindView(R.id.et_meme_input)
     EditText etMemeInput;
 
@@ -37,6 +39,11 @@ public class MemeActivity extends BaseActivity implements FragmentActionListener
         String name = "No name passed";
         if (getIntent().getExtras() != null) {
             name = getIntent().getExtras().getString(EXTRA_NAME);
+        }
+
+        if (savedInstanceState != null) {
+            etMemeInput.setText(savedInstanceState.getString(MEME_NAME));
+            sendMemeClicked();
         }
 
         Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
@@ -74,5 +81,11 @@ public class MemeActivity extends BaseActivity implements FragmentActionListener
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(MEME_NAME, etMemeInput.getText().toString());
     }
 }
