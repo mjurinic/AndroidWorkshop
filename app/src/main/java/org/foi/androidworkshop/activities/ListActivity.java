@@ -15,7 +15,6 @@ public class ListActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
-    private ListAdapter listAdapter;
     private List<MusicAlbum> musicAlbums;
 
     @Override
