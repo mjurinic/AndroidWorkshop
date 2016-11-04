@@ -29,7 +29,7 @@ public class ListActivity extends BaseActivity {
     }
 
     private void initRecyclerView() {
-        recyclerView = (RecyclerView) findViewById(R.id.rvListActivity);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_list_activity);
 
         layoutManager = new LinearLayoutManager(getBaseContext());
 

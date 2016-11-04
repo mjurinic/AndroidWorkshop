@@ -37,7 +37,7 @@ public class RetrofitActivity extends BaseActivity {
         setContentView(R.layout.activity_retrofit);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rvPokemons);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_pokemons);
         initRetrofit();
         makeApiCall();
     }
