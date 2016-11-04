@@ -19,6 +19,8 @@ import butterknife.OnClick;
 
 public class MemeActivity extends BaseActivity implements FragmentActionListener {
 
+    public static final String EXTRA_NAME = "EXTRA_NAME";
+
     @BindView(R.id.et_meme_input)
     EditText etMemeInput;
 
@@ -31,6 +33,13 @@ public class MemeActivity extends BaseActivity implements FragmentActionListener
         setContentView(R.layout.activity_meme);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String name = "No name passed";
+        if (getIntent().getExtras() != null) {
+            name = getIntent().getExtras().getString(EXTRA_NAME);
+        }
+
+        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.btn_send_meme)

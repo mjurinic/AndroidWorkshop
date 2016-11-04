@@ -51,8 +51,13 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_fragment_activity)
     public void onBtnFragmentClicked() {
+        //Long way - used when passing some params to the child activity
         Intent intent = new Intent(this, MemeActivity.class);
+        intent.putExtra("EXTRA_NAME", "Stefano");
         startActivity(intent);
+
+        //Short way - when no params are needed
+        //startActivity(new Intent(this, MemeActivity.class));
     }
 
     @Override
