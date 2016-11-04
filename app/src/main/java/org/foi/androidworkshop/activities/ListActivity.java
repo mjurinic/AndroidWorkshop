@@ -7,6 +7,7 @@ import org.foi.androidworkshop.models.MusicAlbum;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,5 +49,18 @@ public class ListActivity extends BaseActivity {
         ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/2/22/If_not_now_when_album_cover.jpg", "Incubus", "If Not Now, When?", 2011));
 
         return ret;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
