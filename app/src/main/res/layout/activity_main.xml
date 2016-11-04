@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/default_custom_padding"
-    tools:context="org.foi.androidworkshop.activities.MainActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/default_custom_padding"
+              tools:context="org.foi.androidworkshop.activities.MainActivity">
 
     <Button
-        android:id="@+id/btnListActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/btn_list_margin_bottom"
-        android:text="List Activity" />
+            android:id="@+id/btn_list_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/btn_list_margin_bottom"
+            android:text="List Activity"/>
 
     <Button
-        android:id="@+id/btnFragmentActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/btnListActivity"
-        android:text="Fragment Activity" />
+            android:id="@+id/btn_fragment_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Fragment Activity"/>
 
     <Button
-        android:id="@+id/btnRetrofit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/btnFragmentActivity"
-        android:text="Retrofit" />
+            android:id="@+id/btn_retrofit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retrofit"/>
 </LinearLayout>

@@ -1,7 +1,9 @@
 package org.foi.androidworkshop.adapters;
 
+import org.foi.androidworkshop.R;
+import org.foi.androidworkshop.models.MusicAlbum;
+
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +11,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
-import org.foi.androidworkshop.R;
-import org.foi.androidworkshop.models.MusicAlbum;
-
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private List<MusicAlbum> musicAlbums;
+
     private Context context;
 
     public ListAdapter(List<MusicAlbum> musicAlbums, Context context) {
@@ -28,15 +28,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(ListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
 //        Glide.with(context)
 //                .load(musicAlbums.get(position).getAlbumArtUrl())
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
 //                .into(holder.ivAlbumArt);
 
         holder.ivAlbumArt.setImageResource(R.mipmap.ic_launcher);
@@ -53,12 +52,18 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView ivAlbumArt;
+
         private TextView tvArtist;
+
         private TextView tvAlbum;
-        private TextView tvYear;
+
+        //Example with Butterknife usage in RecyclerView.ViewHolder
+        @BindView(R.id.tvYear)
+        TextView tvYear;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
 
             ivAlbumArt = (ImageView) itemView.findViewById(R.id.ivAlbumArt);
             tvArtist = (TextView) itemView.findViewById(R.id.tvArtist);

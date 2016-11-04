@@ -1,32 +1,35 @@
 package org.foi.androidworkshop.activities;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
 import org.foi.androidworkshop.R;
 import org.foi.androidworkshop.adapters.ListAdapter;
 import org.foi.androidworkshop.models.MusicAlbum;
 
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends BaseActivity {
 
     private List<MusicAlbum> musicAlbums;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         musicAlbums = generateListData();
+
         initRecyclerView();
     }
 
     private void initRecyclerView() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvListActivity);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_list_activity);
 
         // Every item added or removed will be the same (in width & height).
         // If you don't set this it'll check if the size of the item has changed and that's expensive.
@@ -56,5 +59,21 @@ public class ListActivity extends AppCompatActivity {
         ret.add(new MusicAlbum("https://upload.wikimedia.org/wikipedia/en/2/22/If_not_now_when_album_cover.jpg", "Incubus", "If Not Now, When?", 2011));
 
         return ret;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

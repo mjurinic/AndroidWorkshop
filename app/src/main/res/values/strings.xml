@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android Workshop</string>
+    <string name="loading">Loading...</string>
+    <string name="network_request_error">An error has occured in a network request</string>
 </resources>

@@ -4,7 +4,6 @@ import org.foi.androidworkshop.R;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,12 +12,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "INFO";
 
-    //A button added with Butterknife Lib
-    @BindView(R.id.btnFragmentActivity)
+    public static final String EXTRA_NAME = "EXTRA_NAME";
+
+    @BindView(R.id.btn_fragment_activity)
     Button btnFragmentActivity;
 
     private Button btnListActivity;
@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Log.i(TAG, "Inside onCreate()");
+        Log.i(TAG, "Inside onCreate() of MainActivity");
 
-        btnListActivity = (Button) findViewById(R.id.btnListActivity);
-        btnRetrofit = (Button) findViewById(R.id.btnRetrofit);
+        btnListActivity = (Button) findViewById(R.id.btn_list_activity);
+        btnRetrofit = (Button) findViewById(R.id.btn_retrofit);
 
         btnListActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,44 +51,49 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.btnFragmentActivity)
+    @OnClick(R.id.btn_fragment_activity)
     public void onBtnFragmentClicked() {
+        //Long way - used when passing some params to the child activity
         Intent intent = new Intent(this, MemeActivity.class);
+        intent.putExtra(EXTRA_NAME, "Stefano");
         startActivity(intent);
+
+        //Short way - when no params are needed
+        //startActivity(new Intent(this, MemeActivity.class));
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Log.i(TAG, "Inside onStart()");
+        Log.i(TAG, "Inside onStart() of MainActivity");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Log.i(TAG, "Inside onResume()");
+        Log.i(TAG, "Inside onResume() of MainActivity");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        Log.i(TAG, "Inside onPause()");
+        Log.i(TAG, "Inside onPause() of MainActivity");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Log.i(TAG, "Inside onStop()");
+        Log.i(TAG, "Inside onStop() of MainActivity");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        Log.i(TAG, "Inside onDestroy()");
+        Log.i(TAG, "Inside onDestroy() of MainActivity");
     }
 }
