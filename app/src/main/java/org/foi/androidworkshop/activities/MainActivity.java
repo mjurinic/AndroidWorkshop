@@ -17,7 +17,7 @@ public class MainActivity extends BaseActivity {
     private static final String TAG = "INFO";
 
     //A button added with Butterknife Lib
-    @BindView(R.id.btnFragmentActivity)
+    @BindView(R.id.btn_fragment_activity)
     Button btnFragmentActivity;
 
     private Button btnListActivity;
@@ -31,8 +31,8 @@ public class MainActivity extends BaseActivity {
 
         Log.i(TAG, "Inside onCreate()");
 
-        btnListActivity = (Button) findViewById(R.id.btnListActivity);
-        btnRetrofit = (Button) findViewById(R.id.btnRetrofit);
+        btnListActivity = (Button) findViewById(R.id.btn_list_activity);
+        btnRetrofit = (Button) findViewById(R.id.btn_retrofit);
 
         btnListActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    @OnClick(R.id.btnFragmentActivity)
+    @OnClick(R.id.btn_fragment_activity)
     public void onBtnFragmentClicked() {
         Intent intent = new Intent(this, MemeActivity.class);
         startActivity(intent);

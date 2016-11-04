@@ -9,21 +9,21 @@
               tools:context="org.foi.androidworkshop.activities.MainActivity">
 
     <Button
-            android:id="@+id/btnListActivity"
+            android:id="@+id/btn_list_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/btn_list_margin_bottom"
             android:text="List Activity"/>
 
     <Button
-            android:id="@+id/btnFragmentActivity"
+            android:id="@+id/btn_fragment_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="Fragment Activity"/>
 
     <Button
-            android:id="@+id/btnRetrofit"
+            android:id="@+id/btn_retrofit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Retrofit"/>
