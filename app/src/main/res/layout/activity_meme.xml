@@ -7,7 +7,7 @@
     <LinearLayout
             android:id="@+id/activity_meme"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:context="org.foi.androidworkshop.activities.MemeActivity">
 

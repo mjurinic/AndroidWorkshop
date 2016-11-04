@@ -5,14 +5,13 @@ import org.foi.androidworkshop.fragments.MemeFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MemeActivity extends AppCompatActivity {
+public class MemeActivity extends BaseActivity {
 
     @BindView(R.id.et_meme_input)
     EditText etMemeInput;
@@ -30,7 +29,6 @@ public class MemeActivity extends AppCompatActivity {
         if (fragment instanceof MemeFragment) {
             ((MemeFragment) fragment).setTopText(etMemeInput.getText().toString());
         }
-
     }
 
 }

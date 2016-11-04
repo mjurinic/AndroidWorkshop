@@ -17,9 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ListActivity"/>
-        <activity android:name=".activities.MemeActivity">
-        </activity>
+        <activity android:name=".activities.ListActivity" />
+        <activity android:name=".activities.RetrofitActivity"></activity>
+        <activity android:name=".activities.MemeActivity"></activity>
     </application>
 
 </manifest>

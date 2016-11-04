@@ -1,18 +1,17 @@
 package org.foi.androidworkshop.activities;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
 import org.foi.androidworkshop.R;
 import org.foi.androidworkshop.adapters.ListAdapter;
 import org.foi.androidworkshop.models.MusicAlbum;
 
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;

@@ -4,7 +4,6 @@ import org.foi.androidworkshop.R;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "INFO";
 
@@ -22,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnFragmentActivity;
 
     private Button btnListActivity;
+    private Button btnRetrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,20 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Inside onCreate()");
 
         btnListActivity = (Button) findViewById(R.id.btnListActivity);
+        btnRetrofit = (Button) findViewById(R.id.btnRetrofit);
 
         btnListActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnRetrofit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), RetrofitActivity.class));
             }
         });
     }
